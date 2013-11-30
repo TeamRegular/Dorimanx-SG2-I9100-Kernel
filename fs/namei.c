@@ -513,8 +513,7 @@ static int unlazy_walk(struct nameidata *nd, struct dentry *dentry)
 
 	if (!lockref_get_not_dead(&parent->d_lockref)) {
 		nd->path.dentry = NULL;	
-		rcu_read_unlock();
-		return -ECHILD;
+		goto out;
 	}
 
 	/*
@@ -3355,8 +3354,7 @@ int vfs_mknod(struct inode *dir, struct dentry *dentry, umode_t mode, dev_t dev)
 	if (error)
 		return error;
 
-	if ((S_ISCHR(mode) || S_ISBLK(mode)) &&
-	    !inode_capable(dir, CAP_MKNOD))
+	if ((S_ISCHR(mode) || S_ISBLK(mode)) && !capable(CAP_MKNOD))
 		return -EPERM;
 
 	if (!dir->i_op->mknod)
