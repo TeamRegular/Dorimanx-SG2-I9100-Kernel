@@ -479,6 +479,12 @@ config LEDS_BLINKM
 	  This option enables support for the BlinkM RGB LED connected
 	  through I2C. Say Y to enable support for the BlinkM LED.
 
+config LEDS_TRIGGER_NOTIFICATION
+        tristate "Notification LED Trigger"
+        help
+          This allows LEDS to be controlled as a notification device.
+          If unsure, say Y.
+
 comment "LED Triggers"
 source "drivers/leds/trigger/Kconfig"
 
