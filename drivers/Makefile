@@ -166,6 +166,7 @@ obj-$(CONFIG_ACCESSORY)		+= accessory/
 obj-$(CONFIG_IR_REMOCON)	+= irda/
 obj-$(CONFIG_BARCODE_EMUL)	+= barcode_emul/
 obj-$(CONFIG_EXTCON)		+= extcon/
+obj-$(CONFIG_SAMSUNG_PHONE_TTY)  += dpram/
 obj-$(CONFIG_MEMORY)		+= memory/
 obj-$(CONFIG_IIO)		+= iio/
 obj-$(CONFIG_VME_BUS)		+= vme/
